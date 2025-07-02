@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campa Beverages - Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+        <div class="text-center mb-4">
+          <h3>Campa Beverages</h3>
+          <p class="text-muted">Admin Dashboard</p>
+        </div>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a href="#" class="nav-link active" onclick="showSection('dashboard')">
+              <i class="bi bi-speedometer2 me-2"></i> Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" onclick="showSection('inventory')">
+              <i class="bi bi-box-seam me-2"></i> Inventory
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" onclick="showSection('invoices')">
+              <i class="bi bi-receipt me-2"></i> Invoices
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" onclick="showSection('users')">
+              <i class="bi bi-people me-2"></i> Users
+            </a>
+          </li>
+          <li class="nav-item mt-4">
+            <a href="#" class="nav-link text-danger" onclick="logout()">
+              <i class="bi bi-box-arrow-left me-2"></i> Logout
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2">Dashboard</h1>
+          <div class="btn-toolbar mb-2 mb-md-0">
+            <div class="btn-group me-2">
+              <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+              <span data-feather="calendar"></span>
+              This week
+            </button>
+          </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboard" class="section">
+          <!-- Dashboard content will be loaded here -->
+        </div>
+
+        <!-- Inventory Section -->
+        <div id="inventory" class="section hidden">
+          <!-- Inventory content will be loaded here -->
+        </div>
+
+        <!-- Invoices Section -->
+        <div id="invoices" class="section hidden">
+          <!-- Invoices content will be loaded here -->
+        </div>
+
+        <!-- Users Section -->
+        <div id="users" class="section hidden">
+          <!-- Users content will be loaded here -->
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div class="loading-overlay" id="loadingSpinner">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // Initialize feather icons
+    feather.replace();
+    
+    // Initialize the application
+    document.addEventListener('DOMContentLoaded', function() {
+      initDashboard();
+    });
+  </script>
+</body>
+</html>
